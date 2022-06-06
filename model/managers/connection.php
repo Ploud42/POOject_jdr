@@ -10,3 +10,5 @@ function dbconnect()
         die();
     }
 }
+
+session_start();

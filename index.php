@@ -13,7 +13,6 @@ $Hermione->setMana(250);
 print_r($Hermione); */
 
 $characters = CharacterManager::getAllCharacters();
-print_r($characters);
 require './views/partials/header.php';
 
 require './views/indexView.php';
