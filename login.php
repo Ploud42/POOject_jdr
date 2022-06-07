@@ -22,9 +22,9 @@ if (isset($_SESSION['pseudo'], $_SESSION['pwd'])) {
     $pwd = htmlspecialchars($_POST['pwd']);
     $result = userManager::userExists($pseudo, $pwd);
     if (!$result) {
-        echo "Cet utilisateur n'existe pas</br>";
+        echo '<p class="alert">Cet utilisateur n\'existe pas</p>';
     } else if ($result == -1) {
-        echo "Mauvais mot de passe</br>";
+        echo '<p class="alert">Mauvais mot de passe</p>';
         print_r($_POST);
     } else {
         $_SESSION['pseudo'] = $pseudo;

@@ -6,6 +6,7 @@ class Character
     private $name;
     private $hp;
     private $atk;
+    private $image;
 
     /*     public function __construct($name, $hp, $atk)
     {
@@ -52,6 +53,15 @@ class Character
         $this->atk = $newatk;
     }
 
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    public function setImage($newImage)
+    {
+        $this->image = $newImage;
+    }
     public function autoAttack($target)
     {
         $target->hp -= $this->atk;

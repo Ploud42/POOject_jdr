@@ -17,13 +17,13 @@ if (isset($_POST['pseudo'], $_POST['pwd1'], $_POST['pwd2'], $_POST['mail'])) {
                 header('Location: ./index.php');
                 die();
             } else if ($check_user == -1)
-                echo 'Cet pseudo existe deja';
+                echo '<p class="alert">Cet pseudo existe deja</p>';
             else
-                echo 'Ce compte existe deja';
+                echo '<p class="alert">Ce compte existe deja</p>';
         } else
-            echo 'Les deux mots de passe ne correspondent pas';
+            echo '<p class="alert">Les deux mots de passe ne correspondent pas</p>';
     } else
-        echo 'Veuillez remplir les champs vides';
+        echo '<p class="alert">Veuillez remplir les champs vides</p>';
 }
 
 require './views/partials/header.php';

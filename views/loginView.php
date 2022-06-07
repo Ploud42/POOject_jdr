@@ -23,7 +23,9 @@
                 <span>Se souvenir de moi (pendant une semaine)</span>
             </label>
         </p>
-        <input class="waves-effect waves-light btn" type="submit" value="OK">
+        <button class="btn waves-effect waves-light" type="submit" name="action">Soumettre
+            <i class="material-icons right">send</i>
+        </button>
     </form>
     <div class="row">
         <div class="input-field col s8 offset-s2">

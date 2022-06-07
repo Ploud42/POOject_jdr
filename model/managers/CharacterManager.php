@@ -21,4 +21,17 @@ class CharacterManager
         $result = $query->fetch();
         return $result;
     }
+
+    public static function addCharacter($name, $hp, $atk, $image)
+    {
+        $db = dbconnect();
+        $query = $db->prepare("INSERT INTO characters VALUES (null, :name, :hp, :atk, :image)");
+        $query->bindParam(':name', $name);
+        $query->bindParam(':hp', $hp);
+        $query->bindParam(':atk', $atk);
+        $query->bindParam(':image', $image);
+        $query->execute();
+        $id = $db->lastInsertId();
+        return ($id);
+    }
 }

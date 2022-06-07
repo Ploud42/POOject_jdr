@@ -27,7 +27,6 @@ class UserManager
         $db = dbconnect();
         $statement = $db->query("SELECT * FROM users WHERE pseudo = '$pseudo'");
         $user = $statement->fetch(PDO::FETCH_ASSOC);
-        echo $user['password'];
         if (empty($user))
             return 0;
         else if (password_verify($pwd, $user['password']))

@@ -4,3 +4,22 @@
     width: 3em;
     /* margin-top: .1em; */
 }
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.alert {
+    text-align: center;
+    width: 100%;
+    background-color: rgb(58, 58, 58);
+    color: white;
+    margin: auto;
+    padding: 1em;
+}
