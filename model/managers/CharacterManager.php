@@ -22,6 +22,19 @@ class CharacterManager
         return $result;
     }
 
+    public static function characterExists($id)
+    {
+        $db = dbconnect();
+        $statement = $db->prepare("SELECT * FROM characters WHERE id=:id");
+        $statement->bindParam(':id', $id);
+        $statement->execute();
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
+        if (empty($result))
+            return 0;
+        else
+            return 1;
+    }
+
     public static function addCharacter($name, $hp, $atk, $image)
     {
         $db = dbconnect();
@@ -33,5 +46,17 @@ class CharacterManager
         $query->execute();
         $id = $db->lastInsertId();
         return ($id);
+    }
+
+    public static function editCharacter($id, $name, $hp, $atk, $image)
+    {
+        $db = dbconnect();
+        $query = $db->prepare("UPDATE characters SET  name=:name, hp=:hp, atk=:atk, image=:image WHERE id=:id");
+        $query->bindParam(':id', $id);
+        $query->bindParam(':name', $name);
+        $query->bindParam(':hp', $hp);
+        $query->bindParam(':atk', $atk);
+        $query->bindParam(':image', $image);
+        $query->execute();
     }
 }

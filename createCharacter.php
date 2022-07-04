@@ -5,7 +5,6 @@ print_r($_FILES);
 print_r($_SESSION);
 if (isset($_POST['name'], $_POST['hp'], $_POST['atk'], $_FILES['img']) && !empty($_POST['name']) && !empty($_POST['hp']) && !empty($_POST['atk'])) {
     if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
-        echo 'test';
         $name = htmlspecialchars($_POST['name']);
         $hp = htmlspecialchars($_POST['hp']);
         $atk = htmlspecialchars($_POST['atk']);
@@ -26,8 +25,8 @@ if (isset($_POST['name'], $_POST['hp'], $_POST['atk'], $_FILES['img']) && !empty
             header('Location: ./createCharacter.php');
             die();
         }
-        $post_id = Charactermanager::addCharacter($name, $hp, $atk, './asset/img/' . $file);
-        header('Location: ./single.php?id=' . $post_id);
+        $charID = Charactermanager::addCharacter($name, $hp, $atk, './asset/img/' . $file);
+        header('Location: ./single.php?id=' . $charID);
         die();
     } else if (!isset($_SESSION['id'])) {
         header('Location: ./index.php');
